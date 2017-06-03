@@ -23,7 +23,16 @@ module.exports = function(digits){
   }
 
 
-  function isPalindrome(test1, test2){
+  function isPalindrome(test){
+    if (digits ==2 ){
+      test1 = test.slice(0,2);
+      test2 = test.slice(2,4);
+    }
+    if (digits === 3){
+      test1 = test.slice(0,3);
+      test2 = test.slice(3,6);
+    }
+
     //test2 = test2.slice(1) + test2.slice(0,1);
     //console.log("test2 is "+ test2);
     var flip = "";
@@ -59,15 +68,21 @@ var test2;
   for (var i = toTest; i>=9005; i--){
     toTest = i.toString();
     //console.log(i);
-    if (digits ==2 ){
-      test1 = toTest.slice(0,2);
-      test2 = toTest.slice(2,4);
-    }
+    // if (digits ==2 ){
+    //   test1 = toTest.slice(0,2);
+    //   test2 = toTest.slice(2,4);
+    // }
+    // if (digits === 3){
+    //   test1 = toTest.slice(0,3);
+    //   test2 = toTest.slice(3,6);
+    // }
 
     //console.log(test1, test2);
-    if (isPalindrome(test1, test2)) {
+    if (isPalindrome(toTest)) {
+      //console.log("totest is " +toTest);
       if (factors(99)) {
         palindromeNumber = i;
+        console.log(palindromeNumber);
       }
     }
   }
