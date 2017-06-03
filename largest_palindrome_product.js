@@ -49,8 +49,14 @@ module.exports = function(digits){
     }
   }
 
-  function factors(num){
-    var testNum = num;
+  function factors(){
+    var testNum;
+    if (digits === 2){
+      testNum = 99;
+    }
+    if (digits === 3){
+      testNum = 999;
+    }
     if (Number.isInteger(toTest/testNum)) {
       factor_0 = toTest/testNum;
       factor_1 = testNum;
@@ -67,20 +73,11 @@ var test2;
 
   for (var i = toTest; i>=9005; i--){
     toTest = i.toString();
-    //console.log(i);
-    // if (digits ==2 ){
-    //   test1 = toTest.slice(0,2);
-    //   test2 = toTest.slice(2,4);
-    // }
-    // if (digits === 3){
-    //   test1 = toTest.slice(0,3);
-    //   test2 = toTest.slice(3,6);
-    // }
 
     //console.log(test1, test2);
     if (isPalindrome(toTest)) {
       //console.log("totest is " +toTest);
-      if (factors(99)) {
+      if (factors()) {
         palindromeNumber = i;
         console.log(palindromeNumber);
       }
