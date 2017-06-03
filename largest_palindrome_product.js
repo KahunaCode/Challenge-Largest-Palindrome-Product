@@ -12,16 +12,27 @@ module.exports = function(digits){
 
   console.log("digits is "+digits);
 
-  var toTest = 9999;
+  var toTest = "";
+
+  if(digits ===2){
+    toTest = 9999;
+  }
+
+  if(digits === 3){
+    toTest = 998001;
+  }
 
 
   function isPalindrome(test1, test2){
-    test2 = test2.slice(1) + test2.slice(0,1);
-    // var flip = "";
-    // for (var i = test2.length; i >=0; i--){
-    //   flip += test2.slice(i)
-    // }
-    if (test1 === test2){
+    //test2 = test2.slice(1) + test2.slice(0,1);
+    //console.log("test2 is "+ test2);
+    var flip = "";
+    for (var i = test2.length; i >=0; i--){
+      flip+= test2.slice(i,i+1);
+    }
+    //console.log("flip is " + flip);
+
+    if (test1 === flip){
       return true;
     }
     else {
@@ -42,12 +53,18 @@ module.exports = function(digits){
     }
   }
 
+var test1;
+var test2;
+
   for (var i = toTest; i>=9005; i--){
     toTest = i.toString();
     //console.log(i);
-    var test1 = toTest.slice(0,2);
-    var test2 = toTest.slice(2,4);
-    console.log(test1, test2);
+    if (digits ==2 ){
+      test1 = toTest.slice(0,2);
+      test2 = toTest.slice(2,4);
+    }
+
+    //console.log(test1, test2);
     if (isPalindrome(test1, test2)) {
       if (factors(99)) {
         palindromeNumber = i;
